@@ -1,0 +1,16 @@
+
+
+<div cdkDropList class="example-list" (cdkDropListDropped)="drop($event)">
+     <div class="example-box" *ngFor="let contact of contacts" cdkDrag>
+      <div class="example-custom-placeholder" *cdkDragPlaceholder></div>
+       <ch-contact-entry  [contact]="contact" (onSelect)="contactSelected(contact)">
+        
+     </ch-contact-entry>
+    
+    </div>
+   </div>
+
+
+     
+
+

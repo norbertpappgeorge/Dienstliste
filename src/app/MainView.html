@@ -1,0 +1,62 @@
+
+<div id="header">
+<div id="logo">
+<ul class="navigation">
+  <li><a href="">home</a></li>
+  <li><a href="">contact</a></li>
+</ul> 
+</div>
+</div>
+
+<div id="wrapper"> 
+
+  <div id="sidebar"><h3>Kontakt bearbeiten</h3>
+    <form>
+    <label for="name">Vorname</label><br>
+    <input type="text" name="name"  [(ngModel)]="contactName"><br>
+    <label for="lastname">Nachname</label><br>
+    <input type="text" name="lastname"  [(ngModel)]="contactLastname"><br>
+    <label for="address">Adresse</label><br>
+    <input type="text" name="address" [(ngModel)]="contactAddress"><br>
+    
+    <label for="datum">Datum</label><br>
+    <my-date-picker [options]="myDatePickerOptions"
+               (dateChanged)="onDateChanged($event)"
+               [selDate]="selectedDate"></my-date-picker><br>
+               <select (change)="onChange($event.target.value)">
+                <option *ngFor="let i of devices">{{i}}</option>
+            </select>
+            
+        
+    <button (click)="editContact()" >Speichern </button>
+    <button (click)="createContact()" >Neu anlegen </button>
+    <button (click)="generateDate()">Datum generieren</button>
+    </form>  
+  </div>
+</div>
+<div id="content">
+ 
+  <div class="mat-app-background basic-container">       
+    <ch-contact-list [contacts]="contacts" (onSelect)="contactSelected($event)"></ch-contact-list>
+  </div> 
+</div>
+
+
+
+  <footer class="clear">Fußzeile</footer>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+<!-- Copyright 2018 Google Inc. All Rights Reserved.
+    Use of this source code is governed by an MIT-style license that
+    can be found in the LICENSE file at http://angular.io/license -->
